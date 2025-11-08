@@ -921,7 +921,380 @@ div div div div .bookBut:hover {
     100% {
         transform: translateY(-200%);
     }
+}
+
+.modern-form {
+    --primary: #ffc107;
+    --primary-dark: #FEA116;
+    --primary-light: rgba(59, 130, 246, 0.1);
+    --success: #10b981;
+    --text-main: #1e293b;
+    --text-secondary: #64748b;
+    --bg-input: #f8fafc;
+
+    position: relative;
+    width: 300px;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.05),
+        inset 0 0 0 1px rgba(148, 163, 184, 0.1);
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+}
+
+.form-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 24px;
+    text-align: center;
+    letter-spacing: -0.01em;
+}
+
+.input-group {
+    margin-bottom: 16px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-input {
+    width: 100%;
+    height: 40px;
+    padding: 0 36px;
+    font-size: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: var(--bg-input);
+    color: var(--text-main);
+    transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    padding: 4px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.eye-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.submit-button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin-top: 8px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.button-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+
+.form-footer {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.login-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.login-link span {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* Hover & Focus States */
+.form-input:hover {
+    border-color: #cbd5e1;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: white;
+    box-shadow: 0 0 0 4px var(--primary-light);
+}
+
+.password-toggle:hover {
+    color: var(--primary);
+    transform: scale(1.1);
+}
+
+.submit-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 12px rgba(59, 130, 246, 0.25),
+        0 2px 4px rgba(59, 130, 246, 0.15);
+}
+
+.submit-button:hover .button-glow {
+    transform: translateX(100%);
+}
+
+.login-link:hover {
+    color: var(--text-main);
+}
+
+.login-link:hover span {
+    color: var(--primary-dark);
+}
+
+/* Active States */
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.password-toggle:active {
+    transform: scale(0.9);
+}
+
+/* Validation States */
+.form-input:not(:placeholder-shown):valid {
+    border-color: var(--success);
+}
+
+.form-input:not(:placeholder-shown):valid~.input-icon {
+    color: var(--success);
+}
+
+/* Animation */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-4px);
+    }
+
+    75% {
+        transform: translateX(4px);
+    }
+}
+
+.form-input:not(:placeholder-shown):invalid {
+    border-color: #ef4444;
+    animation: shake 0.2s ease-in-out;
+}
+
+.form-input:not(:placeholder-shown):invalid~.input-icon {
+    color: #ef4444;
+}
 
 
+/* BOOKING CAROUSEL */
+.property-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: #ddd;
+}
 
+.carousel-inner {
+    padding: 20px;
+}
+
+
+.fillbut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-btn {
+    border-radius: 25px;
+    padding: 8px 20px;
+    border: none;
+    background-color: #f0f0f0;
+    color: #666;
+    margin-right: 10px;
+    transition: all 0.3s;
+
+}
+
+.filter-btn.active {
+    /* background-color: #e3f2fd; */
+    background-color: #1d253d00;
+    /* background-color: #131b3152; */
+    color: #FEA116;
+}
+
+#cardBooking {
+    margin: 0 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+#cardBooking:hover {
+    transform: translateY(-5px);
+}
+
+#cardBooking img {
+    border-radius: 10%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* background: #000; */
+    border-radius: 50%;
+    /* opacity: 1; */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    /* background-color: #0F172B; */
+    border-radius: 52%;
+    padding: 5px;
+}
+
+.carousel-item {
+    padding: 20px 40px;
+}
+
+.destination-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+.carousel-indicators {
+    bottom: -10px;
+}
+
+.carousel-indicators button {
+    background-color: #000;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+/* _________ */
+
+.rental-card {
+    position: relative;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rental-card:hover {
+    transform: scale(1.05);
+}
+
+.bg-image {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+}
+
+.bg-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.bungalow-text {
+    font-weight: bold;
+    margin-top: 75px;
+    color: #FEA116;
+}
+
+.bg-light-green {
+    background-color: #E8F8E8;
+}
+
+.full-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    color: #FEA116;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.rental-card i {
+    font-size: 30px;
+    margin-bottom: 10px;
 }

@@ -26,12 +26,10 @@
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
+
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
-    <!-- <link href="css/style.css" rel="stylesheet"> -->
+
     <link href="../css/style.css" rel="stylesheet">
 </head>
 
@@ -40,7 +38,7 @@
         <!-- Navbar & Hero Start -->
         <div class="container-fluid position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0 wow fadeInDown"
-                data-wow-delay="0.3s">
+                data-wow-delay="0.3s" id="navbar">
                 <a href="index.html" class="navbar-brand p-0">
                     <h1 class="text-primary m-0">
                         <span class="animated-text">Bookify</span>
@@ -58,8 +56,11 @@
                         <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="booking.html" class="nav-item nav-link">booking</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        <a href="profile.html" class="nav-item nav-link "><i class="fa fa-user-circle"
-                                style="font-size: 25px;"></i></a>
+                        <a href="profile.html" class="nav-item nav-link " id="profile-button">
+                            <i class="fa fa-user-circle" style="font-size: 25px;"></i>
+                        </a>
+                        <a href="login.html" id="login-button" class="btn btn-primary py-2 px-4"
+                            style="display: none;">Login</a>
                     </div>
                 </div>
             </nav>
@@ -111,7 +112,8 @@
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up"
+                                        data-target="15">15
                                     </h1>
                                     <div class="ps-4">
                                         <p class="mb-0">Years of</p>
@@ -121,7 +123,8 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
-                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50
+                                    <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up"
+                                        data-target="50">50
                                     </h1>
                                     <div class="ps-4">
                                         <p class="mb-0">Popular</p>
@@ -136,6 +139,87 @@
             </div>
         </div>
         <!-- About End -->
+
+        <div class="container-fluid pt-5 pb-3">
+            <div class="container">
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
+                    <h1 class="mb-5">Our Master Team</h1>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-1.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Raj Patel</h5>
+                            <small>Leader</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-2.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Vivek Patil</h5>
+                            <small>Leader</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-3.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Shubham</h5>
+                            <small>Leader</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-5.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Het</h5>
+                            <small>Leader</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="team-item text-center rounded overflow-hidden">
+                            <div class="rounded-circle overflow-hidden m-4">
+                                <img class="img-fluid" src="../img/team-4.jpg" alt="">
+                            </div>
+                            <h5 class="mb-0">Meet Patel</h5>
+                            <small>Leader</small>
+                            <div class="d-flex justify-content-center mt-3">
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- Footer Start -->
