@@ -3,10 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>About</title>
+    <title>About - Bookify</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Learn about Bookify and our team" name="keywords">
+    <meta content="Bookify helps you book hotels, guest houses and restaurants with ease." name="description">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,216 @@
 
 
     <link href="../css/style.css" rel="stylesheet">
+
+    <style>
+        /* ---- TEAM SINGLE MEMBER LAYOUT ---- */
+        .team-single-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .team-featured-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            max-width: 520px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 36px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .team-featured-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.16);
+        }
+
+        .team-featured-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #FEA116, #fb8500);
+        }
+
+        .team-featured-img-wrap {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .team-featured-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .team-featured-online {
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            width: 18px;
+            height: 18px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+
+        .team-featured-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #0F172B;
+            margin-bottom: 4px;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .team-featured-role {
+            display: inline-block;
+            background: linear-gradient(135deg, #FEA116, #fb8500);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 5px 18px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+
+        .team-featured-bio {
+            color: #64748b;
+            font-size: 0.92rem;
+            text-align: center;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .team-featured-socials {
+            display: flex;
+            gap: 12px;
+        }
+
+        .team-featured-socials a {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-fb {
+            background: #EBF4FF;
+            color: #4267B2;
+        }
+
+        .social-tw {
+            background: #E8F5FD;
+            color: #1DA1F2;
+        }
+
+        .social-ig {
+            background: #FEF0E7;
+            color: #E1306C;
+        }
+
+        .team-featured-socials a:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* ---- FOOTER IMPROVEMENTS ---- */
+        .footer-enhanced {
+            background: linear-gradient(180deg, #0c1529 0%, #0F172B 100%);
+        }
+
+        .footer-brand-col h4 {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.8rem;
+            color: #FEA116;
+            margin-bottom: 10px;
+        }
+
+        .footer-brand-col p {
+            color: rgba(255, 255, 255, 0.45);
+            font-size: 0.88rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 0;
+            margin: 16px 0 12px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+            padding: 11px 16px;
+            color: #fff;
+            font-size: 0.86rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .newsletter-form input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .newsletter-form input:focus {
+            border-color: #FEA116;
+        }
+
+        .newsletter-form button {
+            background: linear-gradient(135deg, #FEA116, #fb8500);
+            border: none;
+            border-radius: 0 10px 10px 0;
+            color: #fff;
+            padding: 11px 18px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            filter: brightness(1.1);
+        }
+
+        .newsletter-disclaimer {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+        }
+
+        .newsletter-disclaimer i {
+            color: #10b981;
+            margin-right: 4px;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+            margin: 10px 0 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,7 +253,6 @@
                     <h1 class="text-primary m-0">
                         <span class="animated-text">Bookify</span>
                     </h1>
-                    <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -53,14 +262,12 @@
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link active"><span
                                 class="animated-text2">About</span></a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
-                        <a href="booking.html" class="nav-item nav-link">booking</a>
+                        <a href="booking.html" class="nav-item nav-link">Booking</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        <a href="profile.html" class="nav-item nav-link " id="profile-button">
+                        <a href="profile.html" class="nav-item nav-link" id="profile-button" style="display:none;">
                             <i class="fa fa-user-circle" style="font-size: 25px;"></i>
                         </a>
-                        <a href="login.html" id="login-button" class="btn btn-primary py-2 px-4"
-                            style="display: none;">Login</a>
+                        <a href="login.html" id="login-button" class="btn btn-primary py-2 px-4">Login</a>
                     </div>
                 </div>
             </nav>
@@ -104,11 +311,12 @@
                         <h1 class="mb-4">
                             Welcome to <span class="animated-text">Bookify</span>
                         </h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                            diam et eos erat ipsum et lorem et sit, sed stet lorem sit.</p>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet
-                            diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna
-                            dolore erat amet</p>
+                        <p class="mb-4">Bookify is your one-stop platform for seamless travel bookings. Whether you're
+                            looking for a luxury hotel suite, a cosy guest house, or a reservation at the finest
+                            restaurant — we make it effortless and affordable.</p>
+                        <p class="mb-4">We partner with the best establishments across India to bring you verified
+                            listings, transparent pricing, and instant confirmations — so you can focus on the
+                            experience, not the logistics.</p>
                         <div class="row g-4 mb-4">
                             <div class="col-sm-6">
                                 <div class="d-flex align-items-center border-start border-5 border-primary px-3">
@@ -117,7 +325,7 @@
                                     </h1>
                                     <div class="ps-4">
                                         <p class="mb-0">Years of</p>
-                                        <h6 class="text-uppercase mb-0">Site</h6>
+                                        <h6 class="text-uppercase mb-0">Experience</h6>
                                     </div>
                                 </div>
                             </div>
@@ -128,115 +336,68 @@
                                     </h1>
                                     <div class="ps-4">
                                         <p class="mb-0">Popular</p>
-                                        <h6 class="text-uppercase mb-0">Guest House,Hotel,Restoran</h6>
+                                        <h6 class="text-uppercase mb-0">Guest House, Hotel, Restaurant</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <a class="btn btn-primary py-3 px-5 mt-2 bookBut" href="">Read More</a>
+                        <a class="btn btn-primary py-3 px-5 mt-2 bookBut" href="booking.html">Book Now</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- About End -->
 
-        <div class="container-fluid pt-5 pb-3">
+        <!-- Team Start — Only Meet Patel -->
+        <div class="container-fluid pt-5 pb-5" style="background:#f8fafc;">
             <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
-                    <h1 class="mb-5">Our Master Team</h1>
+                <div class="text-center wow fadeInUp mb-5" data-wow-delay="0.1s">
+                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Our Team</h5>
+                    <h1 class="mb-2">Meet The Developer</h1>
+                    <p class="text-muted">Bookify — building seamless travel experiences.</p>
                 </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="../img/team-1.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Raj Patel</h5>
-                            <small>Leader</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+
+                <div class="team-single-wrap wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="team-featured-card">
+                        <div class="team-featured-img-wrap">
+                            <img class="team-featured-img" src="../img/team-4.jpg" alt="Meet Patel">
+                            <div class="team-featured-online"></div>
                         </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="../img/team-2.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Vivek Patil</h5>
-                            <small>Leader</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="../img/team-3.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Shubham</h5>
-                            <small>Leader</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="../img/team-5.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Het</h5>
-                            <small>Leader</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="../img/team-4.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Meet Patel</h5>
-                            <small>Leader</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
+                        <h3 class="team-featured-name">Meet Patel</h3>
+                        <span class="team-featured-role">Full-Stack Developer</span>
+                        <div class="team-featured-socials">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Team End -->
 
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container-fluid footer-enhanced text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
+                    <!-- Company Links -->
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Reservation</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
+                        <div class="footer-brand-col">
+                            <h4>Bookify</h4>
+                            <p>Your trusted partner for hotel, restaurant &amp; guest house bookings across India.
+                            </p>
+                        </div>
+                        <div class="mt-3">
+                            <a class="btn btn-link" href="index.html">Home</a>
+                            <a class="btn btn-link" href="about.html">About Us</a>
+                            <a class="btn btn-link" href="booking.html">Booking</a>
+                            <a class="btn btn-link" href="contact.html">Contact Us</a>
+                            <a class="btn btn-link" href="#">Privacy Policy</a>
+                        </div>
                     </div>
+
+                    <!-- Contact Info -->
                     <div class="col-lg-3 col-md-6">
                         <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street,Ahmedabad,INDIA</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, Ahmedabad, INDIA</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 1234567890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>Bookify@gmail.com</p>
                         <div class="d-flex pt-2">
@@ -246,32 +407,57 @@
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
+
+                    <!-- Opening Hours -->
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                        <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                        <p>09AM - 09PM</p>
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening Hours
+                        </h4>
+                        <h5 class="text-light fw-normal">Monday – Saturday</h5>
+                        <p>09:00 AM – 09:00 PM</p>
                         <h5 class="text-light fw-normal">Sunday</h5>
-                        <p>10AM - 08PM</p>
+                        <p>10:00 AM – 08:00 PM</p>
+                        <p class="mt-2"
+                            style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.25); border-radius:8px; padding:8px 12px; font-size:0.82rem; color:#6ee7b7;">
+                            <i class="fa fa-circle me-2" style="font-size:8px;"></i>Support available 24/7 online
+                        </p>
                     </div>
+
+                    <!-- Newsletter -->
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-2">Stay Updated
+                        </h4>
+                        <p style="color:rgba(255,255,255,0.55); font-size:0.87rem; margin-bottom:4px;">
+                            Subscribe for exclusive deals, travel tips &amp; early access to new destinations.
+                        </p>
+                        <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                            <input type="email" id="newsletter-email" placeholder="your@email.com" required>
+                            <button type="submit"><i class="fa fa-paper-plane"></i> Subscribe</button>
+                        </form>
+                        <p class="newsletter-disclaimer">
+                            <i class="fa fa-lock"></i> No spam, ever. Unsubscribe anytime.
+                        </p>
+                        <p class="newsletter-disclaimer mt-2" id="newsletter-msg" style="display:none; color:#6ee7b7;">
+                            <i class="fa fa-check-circle"></i> You're subscribed! Welcome aboard.
+                        </p>
                     </div>
                 </div>
             </div>
+
+            <div class="footer-divider"></div>
+
             <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">Bookify</a>, All Right Reserved.
-                            Designed By <a class="border-bottom" href="#">Raj&Group</a><br><br>
+                            Designed by <a class="border-bottom" href="#">Meet Patel &amp; Group</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
+                                <a href="index.html">Home</a>
+                                <a href="#">Cookies</a>
+                                <a href="#">Help</a>
+                                <a href="#">FAQs</a>
                             </div>
                         </div>
                     </div>
@@ -279,7 +465,6 @@
             </div>
         </div>
         <!-- Footer End -->
-
 
 
         <!-- Back to Top -->
@@ -300,6 +485,44 @@
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
+
+    <script>
+        // Auth navbar logic
+        function getSession() {
+            return JSON.parse(localStorage.getItem('bookify_session') || sessionStorage.getItem('bookify_session') || 'null');
+        }
+
+        (function () {
+            const session = getSession();
+            const profileBtn = document.getElementById('profile-button');
+            const loginBtn = document.getElementById('login-button');
+            if (session && session.loggedIn) {
+                profileBtn.style.display = 'flex';
+                loginBtn.style.display = 'none';
+            } else {
+                profileBtn.style.display = 'none';
+                loginBtn.style.display = 'block';
+            }
+        })();
+
+        // Newsletter subscription
+        function subscribeNewsletter(e) {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            const msg = document.getElementById('newsletter-msg');
+
+            // Save to localStorage
+            const subs = JSON.parse(localStorage.getItem('bookify_newsletter') || '[]');
+            if (!subs.includes(email)) {
+                subs.push(email);
+                localStorage.setItem('bookify_newsletter', JSON.stringify(subs));
+            }
+
+            document.getElementById('newsletter-email').value = '';
+            msg.style.display = 'block';
+            setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        }
+    </script>
 </body>
 
 </html>

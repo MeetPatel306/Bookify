@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login - Bookify</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Login to Bookify - Book hotels, restaurants and guest houses" name="description">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0F172B 0%, #1e2d50 50%, #0F172B 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Heebo', sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 40%, rgba(254,161,22,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(254,161,22,0.05) 0%, transparent 50%);
+            animation: bgPulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes bgPulse {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .floating-circles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(254,161,22,0.15);
+            animation: floatUp linear infinite;
+        }
+
+        .circle:nth-child(1) { width: 60px; height: 60px; left: 10%; animation-duration: 8s; animation-delay: 0s; }
+        .circle:nth-child(2) { width: 100px; height: 100px; left: 25%; animation-duration: 12s; animation-delay: 2s; }
+        .circle:nth-child(3) { width: 40px; height: 40px; left: 60%; animation-duration: 9s; animation-delay: 4s; }
+        .circle:nth-child(4) { width: 80px; height: 80px; left: 80%; animation-duration: 11s; animation-delay: 1s; }
+        .circle:nth-child(5) { width: 50px; height: 50px; left: 45%; animation-duration: 10s; animation-delay: 6s; }
+
+        @keyframes floatUp {
+            0% { bottom: -100px; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { bottom: 110%; opacity: 0; }
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 460px;
+            padding: 20px;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 48px 40px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(254,161,22,0.1);
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .brand-logo a {
+            text-decoration: none;
+        }
+
+        .brand-logo h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            color: #FEA116;
+            margin: 0;
+            text-shadow: 0 0 30px rgba(254,161,22,0.4);
+        }
+
+        .brand-logo p {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+            margin-top: 6px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .page-title h2 {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .page-title p {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.875rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255,255,255,0.35);
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .form-control-auth {
+            width: 100%;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 13px 16px 13px 44px;
+            color: #fff;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-control-auth::placeholder { color: rgba(255,255,255,0.25); }
+
+        .form-control-auth:focus {
+            border-color: #FEA116;
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 0 0 3px rgba(254,161,22,0.15);
+        }
+
+        .form-control-auth:focus + i,
+        .input-wrap:focus-within i {
+            color: #FEA116;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.35);
+            cursor: pointer;
+            padding: 4px;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .toggle-password:hover { color: #FEA116; }
+
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: #FEA116;
+            cursor: pointer;
+        }
+
+        .remember-me span {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.85rem;
+        }
+
+        .forgot-link {
+            color: #FEA116;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .forgot-link:hover { opacity: 0.8; }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #FEA116, #fb8500);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-login:hover::before { left: 100%; }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(254,161,22,0.4);
+        }
+
+        .btn-login:active { transform: translateY(0); }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .divider span {
+            color: rgba(255,255,255,0.3);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .social-login {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn-social-login {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: rgba(255,255,255,0.75);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+        }
+
+        .btn-social-login:hover {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(255,255,255,0.2);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .btn-social-login i { font-size: 16px; }
+        .btn-social-login .fa-google { color: #db4437; }
+        .btn-social-login .fa-facebook-f { color: #4267B2; }
+
+        .signup-link {
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 0.875rem;
+        }
+
+        .signup-link a {
+            color: #FEA116;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .signup-link a:hover { opacity: 0.8; }
+
+        .error-msg {
+            background: rgba(239,68,68,0.15);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: #fca5a5;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-msg {
+            background: rgba(16,185,129,0.15);
+            border: 1px solid rgba(16,185,129,0.3);
+            color: #6ee7b7;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        @media (max-width: 480px) {
+            .login-card { padding: 36px 24px; }
+            .social-login { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Floating background circles -->
+    <div class="floating-circles">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Brand -->
+            <div class="brand-logo">
+                <a href="index.html">
+                    <h1>Bookify</h1>
+                </a>
+                <p>Your perfect stay, perfectly booked.</p>
+            </div>
+
+            <!-- Title -->
+            <div class="page-title">
+                <h2>Welcome Back!</h2>
+                <p>Sign in to continue to your account</p>
+            </div>
+
+            <!-- Messages -->
+            <div class="error-msg" id="error-msg">
+                <i class="fa fa-exclamation-circle me-2"></i>
+                <span id="error-text">Invalid email or password.</span>
+            </div>
+            <div class="success-msg" id="success-msg">
+                <i class="fa fa-check-circle me-2"></i>
+                Login successful! Redirecting...
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form" novalidate>
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <div class="input-wrap">
+                        <input type="email" id="login-email" class="form-control-auth" placeholder="you@example.com" required autocomplete="email">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="input-wrap">
+                        <input type="password" id="login-password" class="form-control-auth" placeholder="Enter your password" required autocomplete="current-password">
+                        <i class="fa fa-lock"></i>
+                        <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)" title="Show/Hide Password">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-login" id="login-btn">
+                    <i class="fa fa-sign-in-alt me-2"></i> Sign In
+                </button>
+            </form>
+
+            <div class="divider"><span>or continue with</span></div>
+
+            <div class="social-login">
+                <a href="#" class="btn-social-login" id="google-login">
+                    <i class="fab fa-google"></i> Google
+                </a>
+                <a href="#" class="btn-social-login" id="facebook-login">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+            </div>
+
+            <div class="signup-link">
+                Don't have an account? <a href="signup.html">Create one</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle password visibility
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'fa fa-eye-slash';
+            } else {
+                input.type = 'password';
+                icon.className = 'fa fa-eye';
+            }
+        }
+
+        // Login form handler
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            const remember = document.getElementById('remember-me').checked;
+
+            const errorMsg = document.getElementById('error-msg');
+            const errorText = document.getElementById('error-text');
+            const successMsg = document.getElementById('success-msg');
+            const btn = document.getElementById('login-btn');
+
+            errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+
+            if (!email || !password) {
+                errorText.textContent = 'Please fill in all fields.';
+                errorMsg.style.display = 'block';
+                return;
+            }
+
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('bookify_users') || '[]');
+            const user = users.find(u => u.email === email && u.password === password);
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> Signing in...';
+
+            setTimeout(() => {
+                if (user) {
+                    // Save session
+                    const session = { email: user.email, name: user.name, loggedIn: true };
+                    if (remember) {
+                        localStorage.setItem('bookify_session', JSON.stringify(session));
+                    } else {
+                        sessionStorage.setItem('bookify_session', JSON.stringify(session));
+                    }
+                    successMsg.style.display = 'block';
+                    setTimeout(() => { window.location.href = 'profile.html'; }, 1200);
+                } else {
+                    errorText.textContent = 'Invalid email or password. Please try again.';
+                    errorMsg.style.display = 'block';
+                    btn.disabled = false;
+                    btn.innerHTML = '<i class="fa fa-sign-in-alt me-2"></i> Sign In';
+                }
+            }, 1000);
+        });
+
+        // Check if already logged in
+        const session = JSON.parse(localStorage.getItem('bookify_session') || sessionStorage.getItem('bookify_session') || 'null');
+        if (session && session.loggedIn) {
+            window.location.href = 'profile.html';
+        }
+    </script>
+</body>
+
+</html>

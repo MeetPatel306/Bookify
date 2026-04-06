@@ -51,17 +51,15 @@
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
                         <a href="booking.html" class="nav-item nav-link">Booking</a>
                         <a href="contact.html" class="nav-item nav-link active"><span
                                 class="animated-text2">Contact</span></a>
-                        <a href="profile.html" class="nav-item nav-link " id="profile-button">
+                        <a href="profile.html" class="nav-item nav-link" id="profile-button" title="Profile">
                             <i class="fa fa-user-circle" style="font-size: 25px;"></i>
                         </a>
                         <a href="login.html" id="login-button" class="btn btn-primary py-2 px-4"
                             style="display: none;">Login</a>
                     </div>
-
                 </div>
             </nav>
 
@@ -184,23 +182,33 @@
                         <p>10AM - 08PM</p>
                     </div>
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-2">Stay Updated</h4>
+                        <p style="color:rgba(255,255,255,0.55); font-size:0.87rem; margin-bottom:10px;">Subscribe for exclusive deals, travel tips &amp; early access to new destinations.</p>
+                        <form style="display:flex; gap:0; margin-bottom:8px;" onsubmit="subscribeNewsletter(event)">
+                            <input type="email" id="newsletter-email" placeholder="your@email.com" required
+                                style="flex:1; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-right:none; border-radius:10px 0 0 10px; padding:10px 14px; color:#fff; font-size:0.84rem; outline:none;">
+                            <button type="submit"
+                                style="background:linear-gradient(135deg,#FEA116,#fb8500); border:none; border-radius:0 10px 10px 0; color:#fff; padding:10px 14px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+                                <i class="fa fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;"><i class="fa fa-lock me-1"></i>No spam, ever. Unsubscribe anytime.</p>
+                        <p id="newsletter-msg" style="display:none; color:#6ee7b7; font-size:0.78rem;"><i class="fa fa-check-circle me-1"></i>You're subscribed! Welcome aboard.</p>
                     </div>
                 </div>
                 <div class="container">
                     <div class="copyright">
                         <div class="row">
                             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                                &copy; <a class="border-bottom" href="#">Bookify</a>, All Right Reserved.Designed By <a
-                                    class="border-bottom" href="#">Raj&Group</a><br><br>
+                                &copy; <a class="border-bottom" href="#">Bookify</a>, All Right Reserved.
+                                Designed By <a class="border-bottom" href="#">Meet Patel &amp; Group</a>
                             </div>
                             <div class="col-md-6 text-center text-md-end">
                                 <div class="footer-menu">
-                                    <a href="">Home</a>
-                                    <a href="">Cookies</a>
-                                    <a href="">Help</a>
-                                    <a href="">FQAs</a>
+                                    <a href="index.html">Home</a>
+                                    <a href="#">Cookies</a>
+                                    <a href="#">Help</a>
+                                    <a href="#">FAQs</a>
                                 </div>
                             </div>
                         </div>
@@ -263,6 +271,19 @@
 
         <script src="../js/main.js"></script>
         <!-- Template Javascript -->
+
+        <script>
+            function subscribeNewsletter(e) {
+                e.preventDefault();
+                const email = document.getElementById('newsletter-email').value;
+                const msg = document.getElementById('newsletter-msg');
+                const subs = JSON.parse(localStorage.getItem('bookify_newsletter') || '[]');
+                if (!subs.includes(email)) { subs.push(email); localStorage.setItem('bookify_newsletter', JSON.stringify(subs)); }
+                document.getElementById('newsletter-email').value = '';
+                msg.style.display = 'block';
+                setTimeout(() => { msg.style.display = 'none'; }, 5000);
+            }
+        </script>
 </body>
 
 </html>

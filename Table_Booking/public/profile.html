@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>My Profile - Bookify</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Your Bookify profile and booking history" name="description">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+
+    <style>
+        .profile-hero {
+            background: linear-gradient(135deg, #0F172B 0%, #1a2744 60%, #0F172B 100%);
+            padding: 80px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 70% 50%, rgba(254,161,22,0.12) 0%, transparent 60%);
+        }
+
+        .profile-avatar-wrap {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FEA116, #fb8500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: #fff;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            box-shadow: 0 0 0 4px rgba(254,161,22,0.2), 0 0 30px rgba(254,161,22,0.3);
+            margin: 0 auto 16px;
+        }
+
+        .profile-avatar-badge {
+            position: absolute;
+            bottom: 14px;
+            right: -4px;
+            width: 28px; height: 28px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 3px solid #0F172B;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #fff;
+        }
+
+        .profile-name {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .profile-email {
+            color: rgba(255,255,255,0.55);
+            font-size: 0.92rem;
+        }
+
+        .profile-badges {
+            margin-top: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge-tag {
+            background: rgba(254,161,22,0.15);
+            border: 1px solid rgba(254,161,22,0.3);
+            color: #FEA116;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-top: 30px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 0 30px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-number {
+            color: #FEA116;
+            font-size: 1.6rem;
+            font-weight: 800;
+            display: block;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        /* Content area */
+        .profile-content {
+            background: #f8fafc;
+            min-height: 60vh;
+            padding: 36px 0;
+        }
+
+        .profile-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+
+        .profile-card-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0F172B;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .profile-card-title i {
+            color: #FEA116;
+            font-size: 1.1rem;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .info-row:last-child { border-bottom: none; }
+
+        .info-label {
+            color: #94a3b8;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 130px;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: #1e293b;
+            font-size: 0.92rem;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .info-edit {
+            color: #FEA116;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .info-edit:hover { opacity: 0.7; }
+
+        /* Booking cards */
+        .booking-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .booking-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+
+        .booking-icon {
+            width: 52px; height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .booking-icon.hotel { background: rgba(59,130,246,0.12); color: #3b82f6; }
+        .booking-icon.restaurant { background: rgba(254,161,22,0.12); color: #FEA116; }
+        .booking-icon.guesthouse { background: rgba(16,185,129,0.12); color: #10b981; }
+
+        .booking-info { flex: 1; }
+
+        .booking-name {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 0.92rem;
+            margin-bottom: 3px;
+        }
+
+        .booking-date {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        .booking-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .status-confirmed { background: rgba(16,185,129,0.12); color: #10b981; }
+        .status-pending { background: rgba(234,179,8,0.12); color: #b45309; }
+        .status-cancelled { background: rgba(239,68,68,0.1); color: #ef4444; }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #1e293b;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .action-btn:hover {
+            background: rgba(254,161,22,0.06);
+            border-color: rgba(254,161,22,0.2);
+            color: #0F172B;
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            width: 42px; height: 42px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #FEA116, #fb8500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .action-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .btn-logout {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            padding: 12px 28px;
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.88rem;
+        }
+
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239,68,68,0.35);
+        }
+
+        @media (max-width: 576px) {
+            .stats-row { flex-wrap: wrap; }
+            .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); width: 50%; }
+            .quick-actions { grid-template-columns: 1fr; }
+            .info-label { width: 100px; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid bg-white p-0">
+        <!-- Navbar -->
+        <div class="container-fluid position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0" id="navbar">
+                <a href="index.html" class="navbar-brand p-0">
+                    <h1 class="text-primary m-0"><span class="animated-text">Bookify</span></h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0 pe-4">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About</a>
+                        <a href="booking.html" class="nav-item nav-link">Booking</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="profile.html" class="nav-item nav-link active" id="profile-button">
+                            <i class="fa fa-user-circle" style="font-size:25px;"></i>
+                        </a>
+                        <a href="login.html" id="login-button" class="btn btn-primary py-2 px-4" style="display:none;">Login</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Profile Hero -->
+        <div class="profile-hero" id="profile-hero">
+            <div class="container text-center pt-3">
+                <div class="profile-avatar-wrap">
+                    <div class="profile-avatar" id="avatar-initials">?</div>
+                    <div class="profile-avatar-badge"><i class="fa fa-check" style="font-size:9px;"></i></div>
+                </div>
+                <h2 class="profile-name" id="profile-name">Loading...</h2>
+                <p class="profile-email" id="profile-email">--</p>
+                <div class="profile-badges">
+                    <span class="badge-tag"><i class="fa fa-star me-1"></i> Verified Member</span>
+                    <span class="badge-tag"><i class="fa fa-calendar-alt me-1"></i> Member since 2025</span>
+                </div>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Bookings</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Reviews</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Saved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Content -->
+        <div class="profile-content">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- Left Column -->
+                    <div class="col-lg-4">
+                        <!-- Personal Info -->
+                        <div class="profile-card">
+                            <div class="profile-card-title">
+                                <i class="fa fa-user"></i> Personal Info
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Full Name</span>
+                                <span class="info-value" id="info-name">—</span>
+                                <span class="info-edit"><i class="fa fa-pen"></i></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Email</span>
+                                <span class="info-value" id="info-email">—</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Phone</span>
+                                <span class="info-value" id="info-phone">—</span>
+                                <span class="info-edit"><i class="fa fa-pen"></i></span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Status</span>
+                                <span class="info-value"><span class="badge-tag" style="font-size:0.75rem;">Active</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="profile-card">
+                            <div class="profile-card-title">
+                                <i class="fa fa-bolt"></i> Quick Actions
+                            </div>
+                            <div class="quick-actions">
+                                <a href="booking.html" class="action-btn">
+                                    <div class="action-icon"><i class="fa fa-calendar-plus"></i></div>
+                                    <span class="action-label">New Booking</span>
+                                </a>
+                                <a href="contact.html" class="action-btn">
+                                    <div class="action-icon"><i class="fa fa-headset"></i></div>
+                                    <span class="action-label">Support</span>
+                                </a>
+                                <a href="#" class="action-btn">
+                                    <div class="action-icon"><i class="fa fa-heart"></i></div>
+                                    <span class="action-label">Saved</span>
+                                </a>
+                                <a href="#" class="action-btn">
+                                    <div class="action-icon"><i class="fa fa-cog"></i></div>
+                                    <span class="action-label">Settings</span>
+                                </a>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button class="btn-logout" id="logout-btn" onclick="logoutUser()">
+                                    <i class="fa fa-sign-out-alt me-2"></i> Sign Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="col-lg-8">
+                        <!-- Recent Bookings -->
+                        <div class="profile-card">
+                            <div class="profile-card-title d-flex justify-content-between align-items-center">
+                                <span><i class="fa fa-calendar-check"></i> Recent Bookings</span>
+                                <a href="booking.html" class="btn btn-sm btn-primary px-3" style="font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em;">Book Now</a>
+                            </div>
+
+                            <!-- Sample bookings (Will be empty for new users) -->
+                            <div id="bookings-container">
+                                <div class="text-center py-4" id="no-bookings">
+                                    <i class="fa fa-calendar-times" style="font-size:2.5rem; color:#cbd5e1; margin-bottom:12px;"></i>
+                                    <p style="color:#94a3b8; font-size:0.9rem;">No bookings yet. <a href="booking.html" style="color:#FEA116;">Make your first booking!</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recommended for You -->
+                        <div class="profile-card">
+                            <div class="profile-card-title">
+                                <i class="fa fa-thumbs-up"></i> Recommended For You
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-sm-4">
+                                    <div style="background:linear-gradient(135deg,#667eea,#764ba2); border-radius:14px; padding:20px; text-align:center; color:#fff; cursor:pointer; transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <i class="fa fa-hotel" style="font-size:1.8rem; margin-bottom:8px;"></i>
+                                        <div style="font-weight:700; font-size:0.88rem;">Premium Hotels</div>
+                                        <div style="font-size:0.75rem; opacity:0.8; margin-top:3px;">50+ options</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div style="background:linear-gradient(135deg,#f093fb,#f5576c); border-radius:14px; padding:20px; text-align:center; color:#fff; cursor:pointer; transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <i class="fa fa-utensils" style="font-size:1.8rem; margin-bottom:8px;"></i>
+                                        <div style="font-weight:700; font-size:0.88rem;">Restaurants</div>
+                                        <div style="font-size:0.75rem; opacity:0.8; margin-top:3px;">30+ cuisines</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div style="background:linear-gradient(135deg,#4facfe,#00f2fe); border-radius:14px; padding:20px; text-align:center; color:#fff; cursor:pointer; transition:transform 0.3s;" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+                                        <i class="fa fa-home" style="font-size:1.8rem; margin-bottom:8px;"></i>
+                                        <div style="font-weight:700; font-size:0.88rem;">Guest Houses</div>
+                                        <div style="font-size:0.75rem; opacity:0.8; margin-top:3px;">Budget-friendly</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="container-fluid bg-dark text-light footer pt-4 mt-2 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Bookify</a>, All Right Reserved.
+                            Designed By <a class="border-bottom" href="#">Raj &amp; Group</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="index.html">Home</a>
+                                <a href="#">Help</a>
+                                <a href="#">FQAs</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Load session
+        function getSession() {
+            return JSON.parse(localStorage.getItem('bookify_session') || sessionStorage.getItem('bookify_session') || 'null');
+        }
+
+        function logoutUser() {
+            if (confirm('Are you sure you want to sign out?')) {
+                localStorage.removeItem('bookify_session');
+                sessionStorage.removeItem('bookify_session');
+                window.location.href = 'login.html';
+            }
+        }
+
+        // Initialize profile page
+        const session = getSession();
+
+        if (!session || !session.loggedIn) {
+            window.location.href = 'login.html';
+        } else {
+            // Get full user data
+            const users = JSON.parse(localStorage.getItem('bookify_users') || '[]');
+            const user = users.find(u => u.email === session.email) || session;
+
+            const name = user.name || session.name || 'User';
+            const email = user.email || session.email;
+            const phone = user.phone || 'Not provided';
+
+            // Set avatar initials
+            const initials = name.split(' ').map(w => w[0]).join('').substring(0,2).toUpperCase();
+            document.getElementById('avatar-initials').textContent = initials;
+            document.getElementById('profile-name').textContent = name;
+            document.getElementById('profile-email').textContent = email;
+            document.getElementById('info-name').textContent = name;
+            document.getElementById('info-email').textContent = email;
+            document.getElementById('info-phone').textContent = phone;
+
+            // Update navbar
+            document.getElementById('profile-button').style.display = 'flex';
+            const loginBtn = document.getElementById('login-button');
+            if (loginBtn) loginBtn.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
